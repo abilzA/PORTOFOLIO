@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Muhammad Nabil Fitterzon, mahasiswa Informatika Universitas Bengkulu.">
+  <title>Muhammad Nabil Fitterzon | Portfolio</title>
+  <style>
+    :root {
+      --navy: #102a43;
+      --blue: #245b8f;
+      --blue-soft: #eaf2f9;
+      --ink: #243447;
+      --muted: #64748b;
+      --line: #e4eaf0;
+      --white: #ffffff;
+      --bg: #f7f9fc;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+    }
+    nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { color: var(--navy); font-weight: 800; letter-spacing: -.4px; }
+    .navlinks { display: flex; gap: 25px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: var(--blue); }
+    .hero { padding: 88px 0 76px; background: linear-gradient(135deg, #fff 0%, #f1f6fb 100%); }
+    .hero-grid { display: grid; grid-template-columns: 1.5fr .8fr; gap: 55px; align-items: center; }
+    .eyebrow { color: var(--blue); text-transform: uppercase; letter-spacing: 2px; font-size: .76rem; font-weight: 800; }
+    h1 { color: var(--navy); font-size: clamp(2.5rem, 6vw, 4.4rem); line-height: 1.08; letter-spacing: -2px; margin: 15px 0 20px; }
+    .hero p { color: var(--muted); max-width: 620px; font-size: 1.08rem; margin: 0 0 28px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 18px; border-radius: 9px; font-weight: 700; font-size: .92rem; border: 1px solid var(--navy); }
+    .btn.primary { background: var(--navy); color: white; }
+    .btn.secondary { color: var(--navy); background: white; }
+    .profile-card { background: white; border: 1px solid var(--line); border-radius: 18px; padding: 27px; box-shadow: 0 16px 40px rgba(16,42,67,.07); }
+    .initials { width: 76px; height: 76px; border-radius: 20px; display: grid; place-items: center; background: var(--blue-soft); color: var(--navy); font-size: 1.65rem; font-weight: 800; margin-bottom: 20px; }
+    .profile-card strong { display: block; color: var(--navy); font-size: 1.05rem; }
+    .profile-card span { color: var(--muted); font-size: .9rem; }
+    .profile-meta { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 15px; display: grid; gap: 9px; font-size: .9rem; }
+    section { padding: 76px 0; }
+    .section-head { margin-bottom: 30px; }
+    .section-head .eyebrow { margin-bottom: 7px; }
+    h2 { color: var(--navy); font-size: clamp(1.7rem, 3vw, 2.35rem); letter-spacing: -.8px; margin: 0; }
+    .lead { color: var(--muted); max-width: 690px; margin: 10px 0 0; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; }
+    .panel, .project, .skill-box { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 25px; }
+    .panel p { margin: 0; color: var(--muted); }
+    .facts { display: grid; gap: 14px; }
+    .fact { border-bottom: 1px solid var(--line); padding-bottom: 11px; }
+    .fact:last-child { border: 0; padding: 0; }
+    .fact small { display: block; color: var(--muted); }
+    .fact strong { color: var(--navy); font-weight: 700; }
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-box h3 { color: var(--navy); margin: 0 0 12px; font-size: 1rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: 6px 10px; background: var(--blue-soft); color: #244e73; border-radius: 7px; font-size: .82rem; font-weight: 650; }
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .project { display: flex; flex-direction: column; min-height: 260px; }
+    .project-no { color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: 1.5px; }
+    .project h3 { color: var(--navy); margin: 10px 0 8px; font-size: 1.14rem; }
+    .project p { color: var(--muted); font-size: .92rem; margin: 0 0 18px; }
+    .project .tags { margin-top: auto; }
+    .timeline { border-left: 2px solid #d7e4ef; margin-left: 7px; padding-left: 24px; }
+    .timeline-item { position: relative; padding: 0 0 22px; }
+    .timeline-item:before { content: ""; position: absolute; left: -31px; top: 7px; width: 11px; height: 11px; border-radius: 50%; background: var(--blue); border: 3px solid var(--bg); }
+    .timeline-item h3 { color: var(--navy); margin: 0; font-size: 1rem; }
+    .timeline-item p { color: var(--muted); margin: 4px 0 0; font-size: .92rem; }
+    .contact { background: var(--navy); color: white; padding: 58px 0; }
+    .contact h2 { color: white; }
+    .contact p { color: #d4e0eb; max-width: 650px; }
+    .contact .btn { background: white; border-color: white; color: var(--navy); margin-top: 10px; }
+    footer { padding: 22px 0; text-align: center; color: var(--muted); font-size: .83rem; }
+    @media (max-width: 760px) {
+      .navlinks { gap: 12px; font-size: .8rem; }
+      .hero { padding: 62px 0; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .skills, .projects { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+    }
+    @media (max-width: 430px) {
+      .wrap { width: min(100% - 28px, 1080px); }
+      .navlinks a:nth-child(2), .navlinks a:nth-child(3) { display: none; }
+      h1 { letter-spacing: -1.3px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#beranda">MN<span style="color:#4c82b4">.</span></a>
+      <div class="navlinks">
+        <a href="#tentang">Tentang</a><a href="#keahlian">Keahlian</a>
+        <a href="#proyek">Proyek</a><a href="#kontak">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Mahasiswa Informatika · Portfolio</div>
+          <h1>Muhammad Nabil<br>Fitterzon</h1>
+          <p>Mahasiswa Informatika Universitas Bengkulu yang tertarik pada pengembangan web, teknologi, dan penerapan solusi digital untuk menyelesaikan permasalahan nyata.</p>
+          <div class="actions">
+            <a class="btn primary" href="#proyek">Lihat Proyek</a>
+            <a class="btn secondary" href="https://github.com/abilzA" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <aside class="profile-card">
+          <div class="initials">MN</div>
+          <strong>Informatics Student</strong>
+          <span>Universitas Bengkulu</span>
+          <div class="profile-meta">
+            <div><small>NPM</small><strong>G1A024103</strong></div>
+            <div><small>Program Studi</small><strong>Informatika</strong></div>
+            <div><small>Fokus</small><strong>Web Development & Digital Solutions</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="tentang">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">Profil</div><h2>Tentang Saya</h2></div>
+        <div class="about-grid">
+          <div class="panel">
+            <p>Saya merupakan mahasiswa Program Studi Informatika Universitas Bengkulu yang senang mempelajari dan mengembangkan teknologi. Saya memiliki ketertarikan pada pembuatan aplikasi berbasis web, pengolahan data, serta pengembangan sistem yang dapat membantu aktivitas dan kebutuhan pengguna. Saya terus mengembangkan kemampuan melalui perkuliahan, eksplorasi mandiri, dan pengerjaan proyek.</p>
+          </div>
+          <div class="panel facts">
+            <div class="fact"><small>Nama</small><strong>Muhammad Nabil Fitterzon</strong></div>
+            <div class="fact"><small>Pendidikan</small><strong>Universitas Bengkulu</strong></div>
+            <div class="fact"><small>Program Studi</small><strong>Informatika</strong></div>
+            <div class="fact"><small>Status</small><strong>Mahasiswa Semester 5</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="keahlian" style="background:#f0f5fa">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">Kemampuan</div><h2>Keahlian & Teknologi</h2><p class="lead">Teknologi dan bidang yang pernah dipelajari atau digunakan dalam proses pembelajaran dan pengembangan proyek.</p></div>
+        <div class="skills">
+          <div class="skill-box"><h3>Web Development</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">React</span></div></div>
+          <div class="skill-box"><h3>Tools & Platform</h3><div class="tags"><span class="tag">GitHub</span><span class="tag">Supabase</span><span class="tag">Netlify</span><span class="tag">Figma</span></div></div>
+          <div class="skill-box"><h3>Bidang Pembelajaran</h3><div class="tags"><span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Data Processing</span><span class="tag">UI Design</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyek">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">Karya Pilihan</div><h2>Proyek</h2><p class="lead">Beberapa proyek yang pernah dikembangkan dan dirancang sebagai bagian dari pembelajaran serta eksplorasi teknologi.</p></div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-no">PROJECT 01</div>
+            <h3>MediTask</h3>
+            <p>Aplikasi pengelolaan tugas dan pengingat akademik. Dirancang untuk membantu pengguna mengatur agenda, kategori tugas, serta pengingat tenggat waktu.</p>
+            <div class="tags"><span class="tag">JavaScript</span><span class="tag">Supabase</span><span class="tag">PWA</span></div>
+          </article>
+          <article class="project">
+            <div class="project-no">PROJECT 02</div>
+            <h3>NontonKu</h3>
+            <p>Proyek website katalog film dengan halaman login, beranda, detail film, serta dashboard admin dan pengguna.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">Web UI</span></div>
+          </article>
+          <article class="project">
+            <div class="project-no">PROJECT 03</div>
+            <h3>Sistem Peringatan Dini Karhutla</h3>
+            <p>Rancangan sistem berbasis data untuk memetakan tingkat risiko kebakaran hutan dan lahan serta menyajikan informasi melalui dashboard geospasial.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Geospatial</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#f0f5fa" id="pengalaman">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">Aktivitas</div><h2>Pengalaman & Pendidikan</h2></div>
+        <div class="timeline">
+          <div class="timeline-item"><h3>Mahasiswa Informatika — Universitas Bengkulu</h3><p>2024 – Sekarang · Menempuh pendidikan dan mengembangkan kemampuan di bidang informatika.</p></div>
+          <div class="timeline-item"><h3>Anggota Media Info — FOTIK 2024</h3><p>Pengalaman organisasi dalam bidang media dan informasi.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontak">
+      <div class="wrap">
+        <div class="eyebrow" style="color:#a9c9e6">Hubungi Saya</div>
+        <h2>Mari terhubung.</h2>
+        <p>Terbuka untuk kesempatan Kerja Praktik (KP), magang, kolaborasi proyek, dan pengalaman baru di bidang teknologi informasi.</p>
+        <a class="btn" href="https://github.com/abilzA" target="_blank" rel="noopener">Kunjungi GitHub ↗</a>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap">© 2026 Muhammad Nabil Fitterzon · Portfolio</div></footer>
+</body>
+</html>
